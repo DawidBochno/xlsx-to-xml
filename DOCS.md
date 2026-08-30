@@ -6,7 +6,9 @@
 |---|---|
 | `xlsx2xml.py` | Caly program: logika konwersji + GUI (Tkinter) + autotest |
 | `requirements.txt` | Zaleznosci: `openpyxl` (.xlsx/.xlsm), `xlrd` (.xls) |
-| `install.bat` / `start.sh` | Uruchomienie z automatycznym `.venv` i instalacja paczek |
+| `install.bat` | Windows: tworzy `.venv` i instaluje paczki (uruchamiane raz) |
+| `program_xlsx-to-xml.bat` | Windows: uruchamia program bez okna konsoli |
+| `start.sh` | Linux / macOS: instalacja i uruchomienie w jednym |
 | `README.md` | Instalacja i instrukcja obslugi |
 
 ## Obslugiwane formaty
@@ -76,7 +78,8 @@ for f in find_inputs("C:/dane"):        # plik albo folder
 
 - Pliki `.xlsx` czytane sa w trybie `read_only=True` - dziala z duzymi arkuszami przy malym zuzyciu pamieci.
 - Ostatnie ustawienia (sciezka wejsciowa, wyjsciowa, naglowki, ostatni katalog okna dialogowego) zapisywane sa w `~/.xlsx2xml.json` przy wyborze sciezki, konwersji i zamknieciu okna. Blad zapisu/odczytu jest ignorowany - program dziala dalej z pustymi polami.
-- `install.bat` uruchamia `pythonw.exe`, dzieki czemu nie pojawia sie okno konsoli. Instalacja paczek odpala sie tylko gdy `requirements.txt` rozni sie od `.venv/requirements.lock`.
+- `program_xlsx-to-xml.bat` uruchamia `pythonw.exe`, dzieki czemu nie pojawia sie okno konsoli; przy braku `.venv` wola `install.bat -cichy`.
+- `install.bat` instaluje paczki tylko gdy `requirements.txt` rozni sie od `.venv/requirements.lock`. Przelacznik `-cichy` pomija koncowe `pause`.
 - Konwersja dziala w osobnym watku, wiec GUI nie zamiera przy duzych plikach.
 - XML zapisywany jest w UTF-8 z deklaracja i wcieciami (`ET.indent`).
 

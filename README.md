@@ -15,7 +15,7 @@ Mozna wskazac pojedynczy plik albo caly folder, wybrac folder wynikowy i jednym 
 - Opcja "pierwszy wiersz zawiera naglowki" - naglowki staja sie nazwami tagow XML
 - Log postepu i bledow w oknie programu
 - **Zapamietuje ostatnio uzyte sciezki** i ustawienia (plik `~/.xlsx2xml.json`)
-- Uruchamia sie **bez okna konsoli** (`install.bat`)
+- Uruchamia sie **bez okna konsoli** (`program_xlsx-to-xml.bat`)
 - Wynik w UTF-8, z wcieciami (czytelny XML)
 
 ## Wymagania
@@ -28,10 +28,12 @@ Mozna wskazac pojedynczy plik albo caly folder, wybrac folder wynikowy i jednym 
 ### Windows - najprostszy sposob
 
 1. Pobierz projekt: **Code -> Download ZIP** i rozpakuj (albo `git clone`).
-2. Kliknij dwukrotnie **`install.bat`**.
+2. Kliknij dwukrotnie **`install.bat`** - tworzy srodowisko `.venv` i instaluje wymagane paczki. Robisz to **tylko raz**.
+3. Uruchamiaj program plikiem **`program_xlsx-to-xml.bat`** - startuje **bez okna konsoli**.
 
-Skrypt sam utworzy srodowisko wirtualne `.venv`, doinstaluje wymagane paczki i uruchomi program **bez okna konsoli**.
-Przy kolejnych uruchomieniach startuje od razu; paczki doinstalowuja sie tylko wtedy, gdy zmieni sie `requirements.txt`.
+Mozesz zrobic skrot do `program_xlsx-to-xml.bat` na pulpicie.
+Jesli uruchomisz go bez wczesniejszej instalacji, sam wywola `install.bat`.
+Paczki doinstalowuja sie ponownie tylko wtedy, gdy zmieni sie `requirements.txt`.
 
 ### macOS / Linux
 
@@ -85,7 +87,7 @@ python xlsx2xml.py --selftest
 | Problem | Rozwiazanie |
 |---|---|
 | `python` nie jest rozpoznawane | Zainstaluj Pythona i zaznacz "Add Python to PATH", potem otworz nowe okno konsoli |
-| `No module named 'openpyxl'` | `pip install -r requirements.txt` albo uruchom przez `install.bat` / `start.sh` |
+| `No module named 'openpyxl'` | Uruchom `install.bat` (Windows) / `start.sh` (Linux, macOS) albo `pip install -r requirements.txt` |
 | `No module named 'tkinter'` (Linux) | `sudo apt install python3-tk` |
 | `No module named 'xlrd'` | `pip install -r requirements.txt` - potrzebne tylko do plikow `.xls` |
 | Plik jest pomijany | Nazwy zaczynajace sie od `~$` to pliki tymczasowe Excela - zamknij plik w Excelu |
