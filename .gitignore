@@ -2,4 +2,6 @@
 __pycache__/
 *.pyc
 *.xml
-~$*.xlsx
+Input/
+Output/
+~$*.xls*

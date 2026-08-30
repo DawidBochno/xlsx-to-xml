@@ -1,24 +1,27 @@
 # XLSX to XML
 
-Prosty program z interfejsem graficznym (GUI), ktory konwertuje pliki Excela (`.xlsx`, `.xlsm`) na pliki `.xml`.
+Prosty program z interfejsem graficznym (GUI), ktory konwertuje pliki Excela (`.xlsx`, `.xlsm`, `.xls`) na pliki `.xml`.
 Mozna wskazac pojedynczy plik albo caly folder, wybrac folder wynikowy i jednym kliknieciem przekonwertowac wszystko.
 
 ![Python](https://img.shields.io/badge/python-3.9%2B-blue) ![Platforma](https://img.shields.io/badge/platforma-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey)
 
 ## Funkcje
 
-- Wybor **pliku** lub **folderu** z plikami XLSX
+- Wybor **pliku** lub **folderu** z plikami Excela
+- Obsluga **nowego** (`.xlsx`, `.xlsm`) i **starego** (`.xls`) formatu Excela
 - Wybor **folderu wyjsciowego** (tworzony automatycznie, jesli nie istnieje)
 - Konwersja wsadowa - caly folder na raz
 - Obsluga wielu arkuszy w jednym skoroszycie
 - Opcja "pierwszy wiersz zawiera naglowki" - naglowki staja sie nazwami tagow XML
 - Log postepu i bledow w oknie programu
+- **Zapamietuje ostatnio uzyte sciezki** i ustawienia (plik `~/.xlsx2xml.json`)
+- Uruchamia sie **bez okna konsoli** (`start.bat`)
 - Wynik w UTF-8, z wcieciami (czytelny XML)
 
 ## Wymagania
 
 - **Python 3.9 lub nowszy** ([python.org/downloads](https://www.python.org/downloads/)) - podczas instalacji na Windows zaznacz **"Add Python to PATH"**
-- Biblioteka `openpyxl` (instaluje sie sama, patrz nizej)
+- Biblioteki `openpyxl` (dla `.xlsx`) i `xlrd` (dla `.xls`) - instaluja sie same, patrz nizej
 
 ## Instalacja i uruchomienie
 
@@ -27,8 +30,8 @@ Mozna wskazac pojedynczy plik albo caly folder, wybrac folder wynikowy i jednym 
 1. Pobierz projekt: **Code -> Download ZIP** i rozpakuj (albo `git clone`).
 2. Kliknij dwukrotnie **`start.bat`**.
 
-Skrypt sam utworzy srodowisko wirtualne `.venv`, doinstaluje wymagane paczki i uruchomi program.
-Przy kolejnych uruchomieniach startuje od razu.
+Skrypt sam utworzy srodowisko wirtualne `.venv`, doinstaluje wymagane paczki i uruchomi program **bez okna konsoli**.
+Przy kolejnych uruchomieniach startuje od razu; paczki doinstalowuja sie tylko wtedy, gdy zmieni sie `requirements.txt`.
 
 ### macOS / Linux
 
@@ -49,7 +52,7 @@ python xlsx2xml.py
 
 1. Uruchom program.
 2. Kliknij **Plik...** (jeden plik) lub **Folder...** (wszystkie pliki XLSX w folderze).
-3. Sprawdz **folder wyjsciowy** - podpowiada sie automatycznie jako podfolder `xml`; mozesz go zmienic przyciskiem **Wybierz...**.
+3. Sprawdz **folder wyjsciowy** (przy kolejnym starcie obie sciezki podpowiadaja sie z ostatniego uzycia) - podpowiada sie automatycznie jako podfolder `xml`; mozesz go zmienic przyciskiem **Wybierz...**.
 4. Zaznacz lub odznacz **"Pierwszy wiersz zawiera naglowki kolumn"**.
 5. Kliknij **Konwertuj**. Postep i ewentualne bledy pojawia sie w oknie logu.
 
@@ -84,7 +87,9 @@ python xlsx2xml.py --selftest
 | `python` nie jest rozpoznawane | Zainstaluj Pythona i zaznacz "Add Python to PATH", potem otworz nowe okno konsoli |
 | `No module named 'openpyxl'` | `pip install -r requirements.txt` albo uruchom przez `start.bat` / `start.sh` |
 | `No module named 'tkinter'` (Linux) | `sudo apt install python3-tk` |
+| `No module named 'xlrd'` | `pip install -r requirements.txt` - potrzebne tylko do plikow `.xls` |
 | Plik jest pomijany | Nazwy zaczynajace sie od `~$` to pliki tymczasowe Excela - zamknij plik w Excelu |
+| Chce zresetowac zapamietane sciezki | Usun plik `.xlsx2xml.json` z katalogu domowego uzytkownika |
 
 ## Licencja
 

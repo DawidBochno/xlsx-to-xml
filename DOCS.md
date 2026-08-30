@@ -5,9 +5,19 @@
 | Plik | Opis |
 |---|---|
 | `xlsx2xml.py` | Caly program: logika konwersji + GUI (Tkinter) + autotest |
-| `requirements.txt` | Zaleznosci (`openpyxl`) |
+| `requirements.txt` | Zaleznosci: `openpyxl` (.xlsx/.xlsm), `xlrd` (.xls) |
 | `start.bat` / `start.sh` | Uruchomienie z automatycznym `.venv` i instalacja paczek |
 | `README.md` | Instalacja i instrukcja obslugi |
+
+## Obslugiwane formaty
+
+| Rozszerzenie | Biblioteka | Uwagi |
+|---|---|---|
+| `.xlsx`, `.xlsm` | `openpyxl` | tryb `read_only`, wyniki formul z cache |
+| `.xls` | `xlrd` (>=2.0) | stary format Excel 97-2003 |
+
+Wybor backendu robi `read_sheets()` na podstawie rozszerzenia; oba zwracaja ten sam ksztalt danych,
+wiec budowanie XML jest wspolne dla obu formatow.
 
 ## Struktura XML
 
@@ -64,7 +74,9 @@ for f in find_inputs("C:/dane"):        # plik albo folder
 
 ## Uwagi implementacyjne
 
-- Pliki czytane sa w trybie `read_only=True` - dziala z duzymi arkuszami przy malym zuzyciu pamieci.
+- Pliki `.xlsx` czytane sa w trybie `read_only=True` - dziala z duzymi arkuszami przy malym zuzyciu pamieci.
+- Ostatnie ustawienia (sciezka wejsciowa, wyjsciowa, naglowki, ostatni katalog okna dialogowego) zapisywane sa w `~/.xlsx2xml.json` przy wyborze sciezki, konwersji i zamknieciu okna. Blad zapisu/odczytu jest ignorowany - program dziala dalej z pustymi polami.
+- `start.bat` uruchamia `pythonw.exe`, dzieki czemu nie pojawia sie okno konsoli. Instalacja paczek odpala sie tylko gdy `requirements.txt` rozni sie od `.venv/requirements.lock`.
 - Konwersja dziala w osobnym watku, wiec GUI nie zamiera przy duzych plikach.
 - XML zapisywany jest w UTF-8 z deklaracja i wcieciami (`ET.indent`).
 
