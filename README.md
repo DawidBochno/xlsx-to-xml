@@ -3,10 +3,15 @@
 Prosty program z interfejsem graficznym (GUI), ktory konwertuje pliki Excela (`.xlsx`, `.xlsm`, `.xls`) na pliki `.xml`.
 Mozna wskazac pojedynczy plik albo caly folder, wybrac folder wynikowy i jednym kliknieciem przekonwertowac wszystko.
 
-![Python](https://img.shields.io/badge/python-3.9%2B-blue) ![Platforma](https://img.shields.io/badge/platforma-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey)
+> **Program dziala w 100% lokalnie na Twoim komputerze.** Nie wysyla zadnych danych do internetu,
+> nie korzysta z chmury ani zewnetrznych serwerow i nie wymaga zakladania konta.
+> Po instalacji dziala **calkowicie offline** - Twoje pliki nigdy nie opuszczaja dysku.
+
+![Python](https://img.shields.io/badge/python-3.9%2B-blue) ![Platforma](https://img.shields.io/badge/platforma-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey) ![Lokalnie](https://img.shields.io/badge/dziala-lokalnie%20%7C%20offline-brightgreen) ![Licencja](https://img.shields.io/badge/licencja-MIT-green)
 
 ## Funkcje
 
+- **Dziala lokalnie i offline** - zero wysylki danych, zero telemetrii
 - Wybor **pliku** lub **folderu** z plikami Excela
 - Obsluga **nowego** (`.xlsx`, `.xlsm`) i **starego** (`.xls`) formatu Excela
 - Wybor **folderu wyjsciowego** (tworzony automatycznie, jesli nie istnieje)
@@ -17,6 +22,18 @@ Mozna wskazac pojedynczy plik albo caly folder, wybrac folder wynikowy i jednym 
 - **Zapamietuje ostatnio uzyte sciezki** i ustawienia (plik `~/.xlsx2xml.json`)
 - Uruchamia sie **bez okna konsoli** (`program_xlsx-to-xml.bat`)
 - Wynik w UTF-8, z wcieciami (czytelny XML)
+
+## Prywatnosc i bezpieczenstwo danych
+
+Cala konwersja odbywa sie na Twoim komputerze:
+
+- Program **nie nawiazuje polaczen sieciowych** - nie ma w nim ani jednego zapytania do internetu.
+- Pliki wejsciowe sa tylko **odczytywane**, wyniki zapisywane do wskazanego przez Ciebie folderu.
+- Jedyne dane zapisywane poza folderem wynikowym to ostatnio uzyte sciezki w pliku `~/.xlsx2xml.json` (na Twoim dysku).
+- Internet potrzebny jest **wylacznie raz**, przy instalacji - do pobrania Pythona i paczek `openpyxl` / `xlrd` z PyPI.
+  Pozniej program dziala bez sieci.
+
+Dzieki temu mozna go bezpiecznie uzywac do plikow firmowych i danych wrazliwych.
 
 ## Wymagania
 
