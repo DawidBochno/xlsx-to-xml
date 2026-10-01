@@ -3,11 +3,14 @@
 Prosty program z interfejsem graficznym (GUI), ktory konwertuje pliki Excela (`.xlsx`, `.xlsm`, `.xls`) na pliki `.xml`.
 Mozna wskazac pojedynczy plik albo caly folder, wybrac folder wynikowy i jednym kliknieciem przekonwertowac wszystko.
 
-> **Program dziala w 100% lokalnie na Twoim komputerze.** Nie wysyla zadnych danych do internetu,
+> **Program dziala w 100% lokalnie na Twoim komputerze.** Nie wysyla zadnych danych do internetu
+> (laczy sie tylko z GitHubem, zeby sprawdzic [aktualizacje](#aktualizacje)),
 > nie korzysta z chmury ani zewnetrznych serwerow i nie wymaga zakladania konta.
 > Po instalacji dziala **calkowicie offline** - Twoje pliki nigdy nie opuszczaja dysku.
 
 ![Python](https://img.shields.io/badge/python-3.9%2B-blue) ![Platforma](https://img.shields.io/badge/platforma-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey) ![Lokalnie](https://img.shields.io/badge/dziala-lokalnie%20%7C%20offline-brightgreen) ![Licencja](https://img.shields.io/badge/licencja-MIT-green)
+
+![Okno programu](docs/okno.png)
 
 ## Funkcje
 
@@ -27,7 +30,8 @@ Mozna wskazac pojedynczy plik albo caly folder, wybrac folder wynikowy i jednym 
 
 Cala konwersja odbywa sie na Twoim komputerze:
 
-- Program **nie nawiazuje polaczen sieciowych** - nie ma w nim ani jednego zapytania do internetu.
+- Jedyne polaczenie sieciowe to **sprawdzenie aktualizacji** na GitHubie: wysylane jest tylko zapytanie
+  o liste plikow programu, nigdy dane. Mozna je wylaczyc - patrz [Aktualizacje](#aktualizacje).
 - Pliki wejsciowe sa tylko **odczytywane**, wyniki zapisywane do wskazanego przez Ciebie folderu.
 - Jedyne dane zapisywane poza folderem wynikowym to ostatnio uzyte sciezki w pliku `~/.xlsx2xml.json` (na Twoim dysku).
 - Internet potrzebny jest **wylacznie raz**, przy instalacji - do pobrania Pythona i paczek `openpyxl` / `xlrd` z PyPI.
@@ -76,6 +80,17 @@ python xlsx2xml.py
 5. Kliknij **Konwertuj**. Postep i ewentualne bledy pojawia sie w oknie logu.
 
 Dla kazdego pliku `nazwa.xlsx` powstaje `nazwa.xml` w folderze wyjsciowym.
+
+## Aktualizacje
+
+Po uruchomieniu program sprawdza w tle na GitHubie, czy jest nowa wersja. Jesli jest, pyta
+**"Pobrac i zainstalowac teraz?"**. Pobierane sa tylko zmienione pliki programu - foldery
+`Input`, `Output` i ustawienia nie sa nadpisywane. Po aktualizacji zamknij i uruchom program
+ponownie. Jesli program o to poprosi, uruchom tez raz `install.bat` (zmienily sie paczki).
+
+- Bez internetu albo przy blokadzie (np. UTM) program dziala normalnie, bez komunikatu.
+- **Wylaczenie**: utworz w folderze programu pusty plik o nazwie `NIE_AKTUALIZUJ`.
+- Kopie pobrana przez `git clone` aktualizuje sie poleceniem `git pull`.
 
 ## Format wyniku
 

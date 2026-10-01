@@ -260,6 +260,8 @@ def main():
         root.destroy()
 
     root.protocol("WM_DELETE_WINDOW", on_close)
+    import aktualizacja
+    aktualizacja.start(root, "DawidBochno/xlsx-to-xml", "main", "xlsx2xml.py")
     root.mainloop()
 
 
@@ -298,6 +300,8 @@ def selftest():
     assert load_cfg()["src"] == "X"
     save_cfg(backup)
 
+    import aktualizacja
+    aktualizacja.selftest()
     print("selftest OK ->", out)
 
 
