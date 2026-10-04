@@ -10,6 +10,8 @@
 | `program_xlsx-to-xml.bat` | Windows: uruchamia program bez okna konsoli |
 | `start.sh` | Linux / macOS: instalacja i uruchomienie w jednym |
 | `README.md` | Instalacja i instrukcja obslugi |
+| `aktualizacja.py` | Sprawdzanie i pobieranie aktualizacji z GitHuba (wspolny plik wszystkich programow) |
+| `docs/okno.png` | Zrzut okna do README |
 
 ## Obslugiwane formaty
 
