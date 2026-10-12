@@ -8,7 +8,7 @@ Mozna wskazac pojedynczy plik albo caly folder, wybrac folder wynikowy i jednym 
 > nie korzysta z chmury ani zewnetrznych serwerow i nie wymaga zakladania konta.
 > Po instalacji dziala **calkowicie offline** - Twoje pliki nigdy nie opuszczaja dysku.
 
-![Python](https://img.shields.io/badge/python-3.9%2B-blue) ![Platforma](https://img.shields.io/badge/platforma-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey) ![Lokalnie](https://img.shields.io/badge/dziala-lokalnie%20%7C%20offline-brightgreen) ![Licencja](https://img.shields.io/badge/licencja-MIT-green)
+![Python](https://img.shields.io/badge/python-3.11%2B-blue) ![Platforma](https://img.shields.io/badge/platforma-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey) ![Lokalnie](https://img.shields.io/badge/dziala-lokalnie%20%7C%20offline-brightgreen) ![Licencja](https://img.shields.io/badge/licencja-MIT-green)
 
 ![Okno programu](docs/okno.png)
 
@@ -41,7 +41,7 @@ Dzieki temu mozna go bezpiecznie uzywac do plikow firmowych i danych wrazliwych.
 
 ## Wymagania
 
-- **Python 3.9 lub nowszy** ([python.org/downloads](https://www.python.org/downloads/)) - podczas instalacji na Windows zaznacz **"Add Python to PATH"**
+- **Python 3.11 lub nowszy** (najlepiej najnowszy) ([python.org/downloads](https://www.python.org/downloads/)) - podczas instalacji na Windows zaznacz **"Add Python to PATH"**
 - Biblioteki `openpyxl` (dla `.xlsx`) i `xlrd` (dla `.xls`) - instaluja sie same, patrz nizej
 
 ## Instalacja i uruchomienie
